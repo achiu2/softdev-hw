@@ -12,7 +12,7 @@ var init = function() {
   c.setAttribute("width","150");
   c.setAttribute("x", logoX.toString());
   c.setAttribute("y", logoY.toString());
-  c.setAttribute("xlink:href", "logo_dvd.jpg");
+  c.setAttribute("http://www.w3.org/1999/xlink", "href", "logo_dvd.jpg");
 };
 
 var drawImage = function(x,y) {
