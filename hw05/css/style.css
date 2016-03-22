@@ -1,8 +1,22 @@
+body {
+  font: 20px sans-serif;
+  margin-right: 20px;
+  background-color: #E4F1FE;
+}
+
 .republican div {
   font: 20px sans-serif;
   background-color:#e74c3c;
   text-align:right;
-  padding: 3px;
-  margin:1px;
+  padding: 5px;
+  margin:5px;
   color:white;
+  height: 20px;
+}
+
+.names {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin:10px;
+  text-align: center:
 }
