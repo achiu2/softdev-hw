@@ -1,0 +1,12 @@
+#Union
+def union(l1,l2):
+    return [x for x in l1 if not in l2] + l2
+
+print union([1,2,4],[2,4,8])
+#Intersection
+
+#Set difference
+
+#Symmetric difference
+
+#Cartesion Product
