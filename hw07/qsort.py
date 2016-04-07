@@ -19,42 +19,17 @@ import random
 
 def populate():
     return [random.randint(0,50) for x in range(10)]
-def swap(l,a,b):
-    c = l[a]
-    l[a]=l[b]
-    l[b]=cdef partition(l,start,end):
-    pivot = l[start]
-    s = start
-    e = end
-
-    while (s < e):
-        while (l[s] < pivot):
-            s+=1
-        while (l[e] > pivot):
-            e-=1
-        if (s < e):
-            swap(l,s,e)
-            s+=1
-            e-=1
-    return e
-
 
 def quicksort(l):
-    if (len(l) == 1):
-        return l
-    else:
-        split = partition(l,0,len(l)-1)
-        rh = l[split+1]
-        lh = l[len(l) - split - 1]
+    if len(l) == 0:
+        return []
 
-        f = 0
-        for i in range(0,split+1):
-            lh[f] = l[i]
-            f+=1
-        b = 0
-        for i in range(split+1,len(l)):
-            rh[b] = l[i]
-            b+=1
-        return quicksort(lh) + quicksort(rh)
-l = populate()
-print quicksort(l)
+    pivot = l[0]
+    lh = [x for x in l if x < pivot]
+    rh = [x for x in l if x > pivot]
+    
+    return quicksort(lh) + [pivot] + quicksort(rh)
+
+test = populate()
+print test
+print quicksort(test)
