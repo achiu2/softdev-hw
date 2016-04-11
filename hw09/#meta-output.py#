@@ -1,0 +1,68 @@
+"""def make_bold(fn):
+    return lambda: "<b>"+fn()+"</b>"
+
+def make_italic(fn):
+    return lambda: "<i>"+fn()+"</i>"
+
+@make_bold
+@make_italic
+def hello():
+    return "hello world"
+
+helloHTML = hello()
+
+print helloHTML
+"""
+
+import time
+def timing(fn):
+    def inner(*args):
+        time1 = time.time()
+        ret = fn(*args)
+        time2 = time.time()
+        print "execution time: "+str((time2-time1)*1000.0)+"s"
+        return ret
+    return inner
+"""
+def args(fn):
+    def inner(*args):
+        print(args)
+        return fn(*args)
+    return inner
+
+def name(fn):
+    def inner(*args):
+        print(fn.func_name)
+        return fn(*args)
+    return inner
+"""
+def name_log(fn):
+    def inner(*args):
+        x = fn(*args)
+        print  fn.funct_name + ": "+ str(arg)
+        return x
+    return inner
+
+#CREATE RANDOM LIST
+import random
+#random function
+def populate():
+    return [random.randint(0,50) for x in range(10)]
+
+#LIST
+@timing
+@name_log
+def quicksort(l):
+    if len(l) == 0:
+        return []
+    pivot = l[0]
+    lh = [x for x in l if x < pivot]
+    rh = [x for x in l if x > pivot]
+
+    return quicksort(lh) + [pivot] + quicksort(rh)
+
+test = populate()
+print test
+q = quicksort(test)
+name_log(quicksort)
+
