@@ -6,6 +6,7 @@ Quicksort
 ==============
 
 1. Pick a pivot
+
 2. Partition into 2 lists
 *all values < p are LH
 *all values > p are RH
@@ -28,8 +29,8 @@ def quicksort(l):
     lh = [x for x in l if x < pivot]
     rh = [x for x in l if x > pivot]
     
-    return quicksort(lh) + [pivot] + quicksort(rh)
+    return quicksort(lh) + ([pivot]*l.count(pivot)) + quicksort(rh)
 
 test = populate()
-print test
-print quicksort(test)
+print "UNSORTED: "+str(test)
+print "SORTED:   "+str(quicksort(test))

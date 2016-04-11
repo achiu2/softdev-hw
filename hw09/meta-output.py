@@ -39,10 +39,23 @@ def name(fn):
 @name
 @timing
 @args
+def quicksort(l):
+    if len(l) == 0:
+        return []
+
+    pivot = l[0]
+    lh = [x for x in l if x < pivot]
+    rh = [x for x in l if x > pivot]
+
+    return quicksort(lh) + [pivot] + quicksort(rh)
+
+import random
 #random function
-def union(l1,l2):
-    return [x for x in l1 if x not in l2] + l2
+def populate():
+    return [random.randint(0,50) for x in range(10)]
 
-randret = union([1,2,3],[2,3,4])
+test = populate()
+print test
+print quicksort(test)
 
-print randret
+print test
